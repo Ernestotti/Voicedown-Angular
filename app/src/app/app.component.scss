@@ -1,0 +1,13 @@
+@import '../styles/styles.scss';
+
+.header {
+    height: 4.9rem;
+    background-color: $grey-pale;
+    .app-column {
+        height: 100%;
+        display: flex;
+    }
+    img {
+        width: 11.3rem;
+    }
+}

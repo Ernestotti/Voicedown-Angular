@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  app:
+    build: ./app
+    ports:
+      - 4200:4200
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+      - /app/dist
+    depends_on:
+      - api
+    container_name: app_seed
+  api:
+    build: ./api
+    ports:
+      - 3001:3001
+    volumes:
+      - ./api:/api
+      - /api/node_modules
+    container_name: api_seed
