@@ -7,19 +7,9 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Seed';
-  tableTitle?: string
-  event?: string
+  title: string = 'Voicedown'
 
   constructor(private service: AppService) {}
 
-  ngOnInit() {
-    this.service.get().subscribe((response: Record<string,string>) => {
-      this.tableTitle = response.table
-    })
-  }
-
-  example(event: string): void {
-    this.event = event
-  }
+  ngOnInit() {}
 }
