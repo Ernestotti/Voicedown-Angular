@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   buttonName: string = '+'
-  
+  tooltip: string = 'Añadir nueva nota'
+
   constructor() { }
 
   ngOnInit(): void {

@@ -22,4 +22,18 @@ describe('ButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('has a plus as name', () => {
+
+    const name = component.buttonName
+
+    expect(name).toBe('+')
+  })
+
+  it('has a tooltip', () => {
+
+    const tooltip = component.tooltip
+
+    expect(tooltip).toBe('Añadir nueva nota')
+  })
 });

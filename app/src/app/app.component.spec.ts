@@ -8,6 +8,6 @@ describe('AppComponent', () => {
     const component = new AppComponent(service)
     const result = component.title
 
-    expect(result).toBe('Seed')
+    expect(result).toBe('Voicedown')
   })
 })
