@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit {
   title: string = 'Voicedown'
   show: boolean = false
+  buttonName: string = '+'
 
   constructor(private service: AppService) {}
 
