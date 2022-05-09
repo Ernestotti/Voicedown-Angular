@@ -13,30 +13,4 @@ describe('Testing library', () => {
             schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
         })
     })
-
-    it('accepts input properties between nested components', () => {
-        const input = 'Table'
-
-        expect(screen.findByText(input))
-    })
-
-    it('collect properties of real requests', () => {
-        const response = 'Table'
-
-        expect(screen.findByText(response))
-    })
-
-    it('render html', () => {
-        const title = 'Atlas'
-
-        screen.debug()
-
-        expect(screen.findByText(title))
-    })
-
-    it('fire event between nested components', () => {
-        fireEvent.click(screen.getByText('Entrar'))
-
-        expect(screen.findByText('Example Event'))
-    })
 })
