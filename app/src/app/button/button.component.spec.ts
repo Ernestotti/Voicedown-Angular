@@ -15,7 +15,7 @@ describe('ButtonComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ButtonComponent);
-    component = fixture.componentInstance;
+    component = fixture.componentInstance;  
     fixture.detectChanges();
   });
 
@@ -24,8 +24,8 @@ describe('ButtonComponent', () => {
   });
 
   it('has a plus as name', () => {
-
-    const name = component.buttonName
+    component.name = '+'
+    const name = component.name
 
     expect(name).toBe('+')
   })
