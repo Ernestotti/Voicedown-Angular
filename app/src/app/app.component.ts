@@ -11,7 +11,12 @@ export class AppComponent implements OnInit {
   show: boolean = false
   buttonName: string = '+'
 
+
   constructor(private service: AppService) {}
 
   ngOnInit() {}
+
+  openDraft(): void {
+    this.show = true
+  }
 }

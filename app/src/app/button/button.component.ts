@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input() name?: string
+  @Output() newItemEvent = new EventEmitter<void>();
   tooltip: string = 'Añadir nueva nota'
 
   constructor() { }
@@ -15,7 +16,7 @@ export class ButtonComponent implements OnInit {
   }
 
   clickButton(): void {
-
+    this.newItemEvent.emit();
   }
 
 }
