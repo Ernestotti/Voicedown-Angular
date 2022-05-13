@@ -11,7 +11,7 @@ start-app:
 	docker-compose up app 
 
 start-api:
-	docker-compose up api 
+	docker-compose up api
 
 test-app:
 	docker-compose run --rm app npm run test $(ARGS)
@@ -21,15 +21,16 @@ test-api:
 
 test:
 	docker-compose run --rm app npm run test
+	docker-compose run --rm app npm run integration
 	docker-compose run --rm api npm run test -- --runInBand
 
 before-commit:
 	docker-compose run --rm app npm run test
 	docker-compose run --rm api npm run test -- --runInBand
-	docker-compose run --rm app npm run e2e
+	docker-compose run --rm app npm run integration
 
 down:
 	docker-compose down
 
-e2e:
-	docker-compose run --rm app npm run e2e $(ARGS)
+integration:
+	docker-compose run --rm app npm run integration $(ARGS)
