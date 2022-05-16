@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   title: string = 'Voicedown'
   show: boolean = false
   buttonName: string = '+'
-
+  draft:string = ""
 
   constructor(private service: AppService) {}
 
@@ -18,5 +18,10 @@ export class AppComponent implements OnInit {
 
   openDraft(): void {
     this.show = true
+  }
+
+  getDraftContent(event:string): void {
+    console.log(event)
+    this.draft = event
   }
 }

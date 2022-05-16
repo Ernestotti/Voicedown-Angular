@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-draft',
@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./draft.component.scss']
 })
 export class DraftComponent implements OnInit {
+  @Output() draftContentEvent = new EventEmitter<string>()
+
   placeholder: string = 'Escribe aquí tu nota'
   draftNote: string = ''
-  username: string = "";
+  username: string = ""
+  draftContent: string = ""
 
   constructor() { }
 
@@ -17,7 +20,12 @@ export class DraftComponent implements OnInit {
   
   save(event: KeyboardEvent) {
     if (event.key === 'Enter') {
-      console.log('it does nothing',this.username);
+
+      this.sendDraftContent()
     }
+  }
+
+  sendDraftContent(): void {
+    this.draftContentEvent.emit(this.draftContent)
   }
 }

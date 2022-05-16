@@ -2,6 +2,6 @@
     <h1>{{title}}</h1>
     <app-button name={{buttonName}} (newItemEvent)="openDraft()"></app-button>
     <br>
-    <app-draft *ngIf="show"></app-draft>
-    <app-note></app-note>
+    <app-draft *ngIf="show" (draftContentEvent)="getDraftContent($event)"></app-draft>
+    <app-note draft={{draft}}></app-note>
 </div>
