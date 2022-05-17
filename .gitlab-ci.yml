@@ -12,5 +12,5 @@ stages:
 build-all:
   stage: build
   script:
-    - make build-all
-    - make test
+    - docker-compose build
+    - docker-compose run --rm app npm run test
