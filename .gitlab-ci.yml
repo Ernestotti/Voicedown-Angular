@@ -1,7 +1,7 @@
 default:
   image: tmaier/docker-compose:latest
   tags:
-    - run22
+    - run-22
 
 variables:
   DOCKER_DRIVER: overlay2
