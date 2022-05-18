@@ -19,7 +19,8 @@ export class DraftComponent implements OnInit {
   }
   
   save(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
+
+   if (event.key === 'Enter') {
 
       this.sendDraftContent()
     }
