@@ -20,8 +20,14 @@ export class AppComponent implements OnInit {
     this.show = true
   }
 
+  closeDraft(): void {
+    this.show = false
+
+  }
+
   getDraftContent(event:string): void {
     console.log(event)
     this.draft = event
+    this.closeDraft()
   }
 }
