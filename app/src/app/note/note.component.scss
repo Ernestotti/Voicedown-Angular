@@ -1,0 +1,18 @@
+p {
+    position: absolute;
+}
+
+.draftDad {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    padding-left: 50%;
+    
+}
+
+.draftDad > p {
+    border: 2px solid darkgray;
+    box-shadow: 3px 3px #131746;
+    padding: 5px;
+    border-radius: 10px
+}
