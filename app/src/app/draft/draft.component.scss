@@ -6,4 +6,10 @@ textarea {
     height: 100px;
     width: 20%;
     margin-bottom: 10px;
+    
+}
+
+textarea:focus{
+    background-color: rgba(146, 146, 134, 0.26);
+   
 }
