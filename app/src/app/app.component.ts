@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   title: string = 'Voicedown'
   show: boolean = false
   buttonName: string = '+'
-  draft:string = ""
+  notes:string[] = []
 
   constructor(private service: AppService) {}
 
@@ -26,8 +26,7 @@ export class AppComponent implements OnInit {
   }
 
   getDraftContent(event:string): void {
-    console.log(event)
-    this.draft = event
+    this.notes.push(event)    
     this.closeDraft()
   }
 }

@@ -28,18 +28,24 @@ describe('Voicemode app', () => {
         expect(draft).toBeInTheDocument()
     })
 
-    it("Should create new note", async() => {
+    it('Should create notes', async() => {
         const button = screen.getByRole('button')
-        fireEvent.click(button)
+        const aNoteText = 'a note'
+        const anotherNoteText = 'another note'
 
-        const draft = screen.getByRole('textbox')
-        await userEvent.type(draft, 'una nota')
+        fireEvent.click(button)
+        let draft = screen.getByRole('textbox')
+        await userEvent.type(draft, aNoteText)
+        await userEvent.type(draft, '{Enter}')
+        fireEvent.click(button)
+        draft = screen.getByRole('textbox')
+        await userEvent.type(draft, anotherNoteText)
         await userEvent.type(draft, '{Enter}')
         
-        const note = await screen.findByText('una nota')
-
+        const note = await screen.findByText(aNoteText)
+        const anotherNote = await screen.findByText(anotherNoteText)
         expect(note).toBeInTheDocument()
+        expect(anotherNote).toBeInTheDocument()
 
     })
-    
 })
