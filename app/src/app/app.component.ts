@@ -19,9 +19,15 @@ export class AppComponent implements OnInit {
     if(lista === null){
       lista = JSON.stringify([])
     }
+
     let notesArray = JSON.parse(lista)
     this.notes = notesArray 
-
+    
+    const sessionTitle = window.location.hash
+    if (sessionTitle){
+      this.title = sessionTitle.replace('#', '')
+    }
+    
   }
 
   openDraft(): void {
