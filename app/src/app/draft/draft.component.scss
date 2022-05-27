@@ -3,10 +3,12 @@ textarea:focus, input:focus {
 }
 textarea {
     padding: 1%;
-    height: 100px;
-    width: 20%;
+    height: 180px;
+    width: 350px;
     margin-bottom: 10px;
-    
+    border: 2px solid darkgray;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 textarea:focus{
