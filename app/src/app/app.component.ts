@@ -15,7 +15,12 @@ export class AppComponent implements OnInit {
   constructor(private service: AppService) {}
 
   ngOnInit() {
-    let lista = localStorage.getItem('listNotes')
+    const sessionTitle = window.location.hash
+    if (sessionTitle){
+      this.title = sessionTitle.replace('#', '')
+    }
+    
+    let lista = localStorage.getItem(this.title)
     if(lista === null){
       lista = JSON.stringify([])
     }
@@ -23,10 +28,7 @@ export class AppComponent implements OnInit {
     let notesArray = JSON.parse(lista)
     this.notes = notesArray 
     
-    const sessionTitle = window.location.hash
-    if (sessionTitle){
-      this.title = sessionTitle.replace('#', '')
-    }
+ 
     
   }
 
@@ -42,7 +44,7 @@ export class AppComponent implements OnInit {
   getDraftContent(event:string): void {
     this.notes.push(event)
     let notesString = JSON.stringify(this.notes)
-    localStorage.setItem('listNotes', notesString) 
+    localStorage.setItem(this.title, notesString) 
     this.closeDraft()
   }
 }
