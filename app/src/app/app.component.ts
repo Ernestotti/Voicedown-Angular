@@ -28,9 +28,12 @@ export class AppComponent implements OnInit {
     let notesArray = JSON.parse(lista)
     this.notes = notesArray 
     
- 
+    window.addEventListener('hashchange', () => {
+      location.reload()
+    })
     
   }
+
 
   openDraft(): void {
     this.show = true
