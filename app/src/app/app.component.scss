@@ -17,3 +17,17 @@ h1 {
     margin-bottom: 1%;
     text-transform: capitalize;
 }
+
+.wrapper {
+    display: flex;
+    justify-content: right;
+    margin: 10px;
+}
+
+.draft {
+    width: 50%
+}
+
+.notes {
+    width: 30%
+}

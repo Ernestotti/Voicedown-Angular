@@ -2,9 +2,7 @@ textarea:focus, input:focus {
     outline: 10;
 }
 textarea {
-    padding: 1%;
-    height: 180px;
-    width: 350px;
+    width: 100%;
     margin-bottom: 10px;
     border: 2px solid darkgray;
     padding: 5px;
@@ -13,5 +11,4 @@ textarea {
 
 textarea:focus{
     background-color: rgba(146, 146, 134, 0.26);
-   
 }
