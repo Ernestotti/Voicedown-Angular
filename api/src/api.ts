@@ -17,7 +17,7 @@ app.post('/saveNote', async (req: Request, res: Response) => {
 
     NoteService.save(note, title)
     
-    res.sendStatus(200)
+    res.status(200)
 })
 
 app.post('/retrieveNote', async (req: Request, res: Response) => {
