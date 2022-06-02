@@ -1,17 +1,14 @@
-const storage: any = []
 
-type Note = {title: string, note: string}
-
+let storage: string[] = []
 export class NoteService {
     static save(note: string, title: string): void {
-        storage.push({title: title, note: note})
+       storage.push(note)
     }
 
-    static retrieve(title: string): Note {
-        const find = storage.find((element: Note) => {
-            return element.title === title
-        })
-
-        return find
+    static retrieve(title: string): any {
+        return storage
+    }
+    static clean(): void {
+        storage = []
     }
 }

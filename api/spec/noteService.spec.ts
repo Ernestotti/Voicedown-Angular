@@ -1,23 +1,35 @@
 import { NoteService } from '../src/services/notes'
 
 describe('Note Service', () => {
-    it('save a note with title', () => {
-        const note = 'Una nota'
-        const title = 'Patri'
+    beforeEach( ()=> {
+        NoteService.clean()
+    })
+    it('retrieves empty notes for an unexisting title', () => {
+       
+        const notes = NoteService.retrieve('unexistingTitle')
 
-        NoteService.save(note, title)
-        const result = NoteService.retrieve(title)
-
-        expect(result).toEqual({title: title, note: note})
+        expect(notes).toEqual([])
     })
 
-    it('retrieve a note for a specific title', () => {
-        const note = 'Una nota'
-        const title = 'Elena'
+    it('saves a note for a new title', () => {
+        const title = 'aTitle'
+        const aNote = 'some note text'
 
-        NoteService.save(note, title)
-        const result = NoteService.retrieve(title)
+        NoteService.save(aNote, title)
 
-        expect(result).toEqual({title: title, note: note})
+        const notes = NoteService.retrieve(title)
+        expect(notes).toEqual([aNote])
+    })
+
+    it('saves new notes for an existing title', () => {
+        const title = 'aTitle'
+        const aNote = 'some note text'
+        const anotherNote = 'some other note text'
+        NoteService.save(aNote, title)
+
+        NoteService.save(anotherNote, title)
+
+        const notes = NoteService.retrieve(title)
+        expect(notes).toEqual([aNote, anotherNote])
     })
 })
