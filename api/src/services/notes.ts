@@ -1,14 +1,21 @@
-
-let storage: string[] = []
+let notes: { [title: string]: string[] } = {}
 export class NoteService {
     static save(note: string, title: string): void {
-       storage.push(note)
+        if(notes[title]){
+            notes[title].push(note)
+        } else {
+            notes[title] = [note]
+        }
     }
 
     static retrieve(title: string): any {
-        return storage
+        if(notes[title]){
+            return notes[title]
+        } else {
+            return []
+        }
     }
     static clean(): void {
-        storage = []
+        notes = {}
     }
 }

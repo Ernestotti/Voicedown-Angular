@@ -32,4 +32,14 @@ describe('Note Service', () => {
         const notes = NoteService.retrieve(title)
         expect(notes).toEqual([aNote, anotherNote])
     })
+    it('saves new notes for titles', () => {
+        const title = 'aTitle'
+        const aNote = 'other note text'
+        NoteService.save('some note text', 'anotherTitle')
+
+        NoteService.save(aNote, title)
+
+        const notes = NoteService.retrieve(title)
+        expect(notes).toEqual([aNote])
+    })
 })
