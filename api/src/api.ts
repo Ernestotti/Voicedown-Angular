@@ -18,6 +18,7 @@ app.post('/saveNote', async (req: Request, res: Response) => {
     NoteService.save(note, title)
     
     res.status(200)
+    res.send({})
 })
 
 app.post('/retrieveNote', async (req: Request, res: Response) => {

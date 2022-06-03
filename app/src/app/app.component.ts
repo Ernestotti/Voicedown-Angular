@@ -19,21 +19,25 @@ export class AppComponent implements OnInit {
     if (sessionTitle){
       this.title = sessionTitle.replace('#', '')
     }
+        
+    this.retrieveNote()
     
-    let lista = localStorage.getItem(this.title)
-    if(lista === null){
-      lista = JSON.stringify([])
-    }
-
-    let notesArray = JSON.parse(lista)
-    this.notes = notesArray 
-    
-    window.addEventListener('hashchange', () => {
-      location.reload()
-    })
+    this.reloadOnHashChange()
     
   }
 
+  reloadOnHashChange():void {
+    window.addEventListener('hashchange', () => {
+      location.reload()
+    })
+  } 
+
+  retrieveNote(): void {
+    this.service.retrieveNote(this.title).subscribe((response: string[]) => {
+      this.notes = response
+    })
+
+  }
 
   openDraft(): void {
     this.show = true
@@ -41,13 +45,13 @@ export class AppComponent implements OnInit {
 
   closeDraft(): void {
     this.show = false
-
   }
 
   getDraftContent(event:string): void {
-    this.notes.push(event)
-    let notesString = JSON.stringify(this.notes)
-    localStorage.setItem(this.title, notesString) 
+    this.service.saveNote(this.title, event).subscribe(() => {
+      this.retrieveNote()
+    })
     this.closeDraft()
+
   }
 }
