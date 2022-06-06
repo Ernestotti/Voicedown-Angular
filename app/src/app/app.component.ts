@@ -8,7 +8,7 @@ import { AppService } from './app.service';
 })
 export class AppComponent implements OnInit {
   title: string = 'Voicedown'
-  show: boolean = false
+  show: boolean = true
   buttonName: string = '+'
   notes:string[] = []
 
@@ -39,9 +39,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  openDraft(): void {
-    this.show = true
-  }
+  
 
   getDraftContent(event:string): void {
     this.service.saveNote(this.title, event).subscribe(() => {
