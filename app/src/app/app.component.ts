@@ -43,15 +43,11 @@ export class AppComponent implements OnInit {
     this.show = true
   }
 
-  closeDraft(): void {
-    this.show = false
-  }
-
   getDraftContent(event:string): void {
     this.service.saveNote(this.title, event).subscribe(() => {
       this.retrieveNote()
     })
-    this.closeDraft()
+    
 
   }
 }
