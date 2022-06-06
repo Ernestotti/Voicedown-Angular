@@ -35,6 +35,8 @@ export class DraftComponent implements OnInit {
    if (event.key === 'Enter') {
 
       this.sendDraftContent()
+
+      this.draftContent = ''
     }
   }
 
