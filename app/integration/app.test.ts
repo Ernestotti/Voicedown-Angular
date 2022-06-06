@@ -28,7 +28,7 @@ describe('Voicemode app', () => {
         expect(draft).toBeInTheDocument()
     })
 
-    it('Should create notes', async() => {
+    xit('Should create notes', async() => {
         const button = screen.getByRole('button')
         const aNoteText = 'a note'
         const anotherNoteText = 'another note'
