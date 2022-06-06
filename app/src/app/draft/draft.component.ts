@@ -16,6 +16,17 @@ export class DraftComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.focusOnLoad()
+  }
+  
+  focusOnLoad(): void {
+    setTimeout(function() {
+      const textarea = document.querySelector("textarea");
+      if(textarea){
+        textarea.focus()
+      }
+    }, 0)
+    
   }
   
   save(event: KeyboardEvent) {
