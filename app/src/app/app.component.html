@@ -1,6 +1,5 @@
 <div>
     <h1>{{title}}</h1>
-    <!--<app-button name={{buttonName}} (newItemEvent)="openDraft()"></app-button></app-button></app-button></app-button>></app-button>-->
     <br>
     <div class="wrapper">
         <app-draft *ngIf="show" (draftContentEvent)="getDraftContent($event)" class="draft"></app-draft>
