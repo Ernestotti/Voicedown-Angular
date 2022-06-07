@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from '../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +18,10 @@ export class AppService {
   constructor(private http: HttpClient) {}
   
   saveNote(title: string, note: string): Observable<object> {
-    return this.http.post('http://localhost:3001/saveNote', {title: title, note: note}, this.httpOptions)
+    return this.http.post(`${environment.apiUrl}/saveNote`, {title: title, note: note}, this.httpOptions)
   }
 
   retrieveNote(title: string): Observable<string[]> {
-    return this.http.post('http://localhost:3001/retrieveNote', {title: title}, this.httpOptions).pipe(map((response) => response as string[]))
+    return this.http.post(`${environment.apiUrl}/retrieveNote`, {title: title}, this.httpOptions).pipe(map((response) => response as string[]))
   }
 }

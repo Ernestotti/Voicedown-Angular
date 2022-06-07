@@ -10,7 +10,7 @@ export class ButtonComponent implements OnInit {
   @Output() newItemEvent = new EventEmitter<void>();
   tooltip: string = 'Añadir nueva nota'
 
-  constructor() { }
+  
 
   ngOnInit(): void {
   }
