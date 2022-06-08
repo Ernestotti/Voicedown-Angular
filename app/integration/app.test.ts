@@ -18,6 +18,14 @@ describe('Voicemode app', () => {
         })
     })
 
+    it('Should show draft on init',() =>{
+        const textArea = 'textbox'
+
+        const draft = screen.getByRole(textArea)
+        
+        expect(draft).toBeInTheDocument()
+    })
+
     it('Should create notes', async() => {
         const aNoteText = 'a note'
         const anotherNoteText = 'another note'
