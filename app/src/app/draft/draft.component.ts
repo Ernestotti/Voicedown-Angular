@@ -12,7 +12,7 @@ export class DraftComponent implements OnInit {
   placeholder: string = 'Escribe aquí tu nota'
   draftNote: string = ''
   username: string = ""
-  draftContent: string = ""
+  draftContent: string |null = ""
 
   constructor() { }
 
@@ -31,18 +31,15 @@ export class DraftComponent implements OnInit {
   }
   
   save(event: KeyboardEvent) {
-
-   if (event.key === 'Enter') {
-
-      event.preventDefault()
-
+    this.draftContent = this.draftContent!.trim()
+    if ((event.key === 'Enter') && (this.draftContent !== '')) {
       this.sendDraftContent()
 
-      this.draftContent = ''
+      this.draftContent = null
     }
   }
 
   sendDraftContent(): void {
-    this.draftContentEvent.emit(this.draftContent)
+    this.draftContentEvent.emit(this.draftContent!)
   }
 }
