@@ -14,7 +14,6 @@ describe('AppComponent', () => {
   it('should set show property', () => {
     const component = new AppComponent(service)
 
-    component.openDraft()
     const result = component.show
 
     expect(result).toBe(true)

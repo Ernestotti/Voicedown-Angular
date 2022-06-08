@@ -9,7 +9,6 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit {
   title: string = 'Voicedown'
   show: boolean = true
-  buttonName: string = '+'
   notes:string[] = []
 
   constructor(private service: AppService) {}
@@ -22,8 +21,7 @@ export class AppComponent implements OnInit {
         
     this.retrieveNote()
     
-    this.reloadOnHashChange()
-    
+    this.reloadOnHashChange()    
   }
 
   reloadOnHashChange():void {
@@ -36,16 +34,11 @@ export class AppComponent implements OnInit {
     this.service.retrieveNote(this.title).subscribe((response: string[]) => {
       this.notes = response
     })
-
   }
-
-  
 
   getDraftContent(event:string): void {
     this.service.saveNote(this.title, event).subscribe(() => {
       this.retrieveNote()
     })
-    
-
   }
 }
