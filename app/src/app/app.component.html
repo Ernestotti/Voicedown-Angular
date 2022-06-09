@@ -1,11 +1,8 @@
 <div>
     <h1>{{title}}</h1>
-    <br>
-    <div class="wrapper">
-        <app-draft *ngIf="show" (draftContentEvent)="getDraftContent($event)" class="draft"></app-draft>
-        <div class="notes">
-            <app-note *ngFor="let note of notes" draft={{note}}></app-note>
-        </div>
+    <app-draft *ngIf="show" (draftContentEvent)="getDraftContent($event)" class="draft"></app-draft>
+    <div class="notes">
+        <app-note *ngFor="let note of notes" draft={{note}}></app-note>
     </div>
 
 </div>

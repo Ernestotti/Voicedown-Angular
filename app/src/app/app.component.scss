@@ -12,19 +12,13 @@
     }
 }
 
-
 h1 {
     display: flex;
     justify-content: center;
     font-size: 3rem;
     text-transform: capitalize;
     text-align: center;
-}
-
-.wrapper {
-    display: flex;
-    justify-content: right;
-    margin: 10px;
+    margin-bottom: 2%;
 }
 
 .draft {
@@ -33,6 +27,5 @@ h1 {
 
 .notes {
     width: 100%;
-    margin-top: 10%;
 }
    
