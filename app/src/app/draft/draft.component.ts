@@ -31,10 +31,9 @@ export class DraftComponent implements OnInit {
   }
   
   save(event: KeyboardEvent) {
-    this.draftContent = this.draftContent!.trim()
     if ((event.key === 'Enter') && (this.draftContent !== '')) {
+      event.preventDefault()
       this.sendDraftContent()
-
       this.draftContent = null
     }
   }
