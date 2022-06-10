@@ -31,10 +31,13 @@ export class DraftComponent implements OnInit {
   }
   
   save(event: KeyboardEvent) {
-    if ((event.key === 'Enter') && (this.draftContent !== '')) {
+    if (event.key === 'Enter')  {
       event.preventDefault()
-      this.sendDraftContent()
-      this.draftContent = null
+
+      if( this.draftContent !== ''){
+        this.sendDraftContent()
+        this.draftContent = ''
+      }
     }
   }
 
