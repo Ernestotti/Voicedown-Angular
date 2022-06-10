@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-//import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-draft',
@@ -12,7 +11,7 @@ export class DraftComponent implements OnInit {
   placeholder: string = 'Escribe aquí tu nota'
   draftNote: string = ''
   username: string = ""
-  draftContent: string |null = ""
+  draftContent: string = ""
 
   constructor() { }
 
