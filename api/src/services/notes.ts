@@ -18,4 +18,8 @@ export class NoteService {
     static clean(): void {
         notes = {}
     }
+
+    static delete(note: string, title: string): void {
+
+    } 
 }
