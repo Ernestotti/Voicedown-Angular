@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../environments/environment'
+import { title } from 'process';
+import { url } from 'inspector';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +25,9 @@ export class AppService {
 
   retrieveNote(title: string): Observable<string[]> {
     return this.http.post(`${environment.apiUrl}/retrieveNote`, {title: title}, this.httpOptions).pipe(map((response) => response as string[]))
+  }
+
+  deleteNote(title: string, note: string): Observable<object>{
+    return this.http.post(`${environment.apiUrl}/delete-note`, {title: title, note: note}, this.httpOptions)
   }
 }
