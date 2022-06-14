@@ -8,7 +8,7 @@ app.use(cors())
 app.use(express.json({limit: '50mb'}))
 
 app.listen(3001, () => {
-    console.log(`server started at localhost:3001`)
+    console.log('server started at localhost:3001')
 })
 
 app.post('/saveNote', async (req: Request, res: Response) => {
