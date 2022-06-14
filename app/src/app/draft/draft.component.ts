@@ -41,6 +41,6 @@ export class DraftComponent implements OnInit {
   }
 
   sendDraftContent(): void {
-    this.draftContentEvent.emit(this.draftContent!)
+    this.draftContentEvent.emit(this.draftContent)
   }
 }
