@@ -1,16 +1,13 @@
-p {
-    width: 70%  
-}
-
-.note {
-    border: 2px solid darkgray;
+p  {
+    width: 70%;  
     margin-bottom: 0.8%;
+    border: 2px solid darkgray;
     box-shadow: 3px 3px #131746;
-    padding: 5px;
     border-radius: 10px;
+    padding: 5px;
     overflow: hidden;
 }
 
-.note:hover {
+p:hover {
     background-color: rgba(239, 239, 239, 0.919);
 }
