@@ -20,6 +20,9 @@ export class NoteService {
     }
 
     static delete(note: string, title: string): void {
-
+        const newNotes = notes[title].filter((element) => {
+            return element !== note
+        })
+        notes[title] = newNotes
     } 
 }

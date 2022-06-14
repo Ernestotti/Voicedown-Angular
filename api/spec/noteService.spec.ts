@@ -42,4 +42,14 @@ describe('Note Service', () => {
         const notes = NoteService.retrieve(title)
         expect(notes).toEqual([aNote])
     })
+    it('Delete notes from a title', () => {
+        const title = 'aTitle'
+        const aNote = 'note text'
+        
+        NoteService.save(aNote, title)
+        NoteService.delete(aNote, title)
+        const notes = NoteService.retrieve(title)
+
+        expect(notes).toEqual([])
+    })
 })
