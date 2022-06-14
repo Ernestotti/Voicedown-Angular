@@ -10,8 +10,8 @@ export class DraftComponent implements OnInit {
 
   placeholder: string = 'Escribe aquí tu nota'
   draftNote: string = ''
-  username: string = ""
-  draftContent: string = ""
+  username: string = ''
+  draftContent: string = ''
 
   constructor() { }
 
@@ -21,7 +21,7 @@ export class DraftComponent implements OnInit {
   
   focusOnLoad(): void {
     setTimeout(function() {
-      const textarea = document.querySelector("textarea");
+      const textarea = document.querySelector('textarea');
       if(textarea){
         textarea.focus()
       }
