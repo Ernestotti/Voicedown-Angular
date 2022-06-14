@@ -1,4 +1,4 @@
-p  {
+.notes  {
     width: 70%;  
     margin-bottom: 0.8%;
     border: 2px solid darkgray;
@@ -8,6 +8,14 @@ p  {
     overflow: hidden;
 }
 
-p:hover {
+.notes:hover {
     background-color: rgba(239, 239, 239, 0.919);
+}
+.indiv-note {
+    float: left;
+    width: 90%;
+}
+.delete  {
+    float: right;
+    width: 10%;
 }
