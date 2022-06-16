@@ -6,13 +6,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./note.component.scss']
 })
 export class NoteComponent implements OnInit {
-  @Input() draft: string = ""
+  @Input() note: string = ""
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  delete(note: string) {
+  delete(): void {
       if(confirm("¿Eliminar esta nota?")) {
       }
     }
