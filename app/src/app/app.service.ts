@@ -26,8 +26,6 @@ export class AppService {
   }
 
   deleteNote(title: string, note: string): Observable<object>{
-    console.log('borrando')
-    console.log(title, note)
     return this.http.post(`${environment.apiUrl}/delete-note`, {title: title, note: note}, this.httpOptions)
   }
 }
