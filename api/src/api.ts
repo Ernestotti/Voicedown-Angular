@@ -30,12 +30,14 @@ app.post('/retrieveNote', async (req: Request, res: Response) => {
 })
 
 app.post('/delete-note' , async (req: Request, res: Response) => {
+
+   
     const note = req.body.note
     const title = req.body.title
-
     NoteService.delete(note, title)
 
     res.status(200)
+    res.send({})
     
 })
 declare global {

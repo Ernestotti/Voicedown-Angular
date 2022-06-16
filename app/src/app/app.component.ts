@@ -41,4 +41,11 @@ export class AppComponent implements OnInit {
       this.retrieveNote()
     })
   }
+
+  deleteNote(event:string): void {
+    
+    this.service.deleteNote(this.title, event).subscribe(() => {
+      this.retrieveNote()
+    })
+  }
 }

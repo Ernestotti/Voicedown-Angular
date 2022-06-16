@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-note',
@@ -7,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NoteComponent implements OnInit {
   @Input() note: string = ""
+  @Output() deleteNoteEvent = new EventEmitter<string>()
 
   constructor() { }
 
@@ -14,6 +16,7 @@ export class NoteComponent implements OnInit {
   }
   delete(): void {
       if(confirm("¿Eliminar esta nota?")) {
+        this.deleteNoteEvent.emit(this.note)
       }
     }
 }
