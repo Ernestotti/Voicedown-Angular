@@ -1,28 +1,22 @@
-let notes: { [title: string]: string[] } = {}
+import { NotesRepository } from "./notesRepository"
+
 export class NoteService {
     static save(note: string, title: string): void {
-        if(notes[title]){
-            notes[title].push(note)
-        } else {
-            notes[title] = [note]
-        }
+        NotesRepository.save(note, title)
+         
     }
 
     static retrieve(title: string): any {
-        if(notes[title]){
-            return notes[title]
-        } else {
-            return []
-        }
+    
+        return NotesRepository.retrieve(title)
+    
     }
+    
     static clean(): void {
-        notes = {}
+        NotesRepository.clean()
     }
 
     static delete(note: string, title: string): void {
-        const newNotes = notes[title].filter((element) => {
-            return element !== note
-        })
-        notes[title] = newNotes
+        NotesRepository.delete(note, title)
     } 
 }
