@@ -15,8 +15,8 @@ export class NoteComponent implements OnInit {
   ngOnInit(): void {
   }
   delete(): void {
-      if(confirm("¿Eliminar esta nota?")) {
-        this.deleteNoteEvent.emit(this.note)
-      }
+    if(confirm("¿Eliminar esta nota?")) {
+      this.deleteNoteEvent.emit(this.note)
     }
+  }
 }
