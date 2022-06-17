@@ -7,6 +7,18 @@ import { DraftComponent } from '../src/app/draft/draft.component'
 import userEvent from '@testing-library/user-event'
 import { NoteComponent } from '../src/app/note/note.component'
 import { FormsModule } from '@angular/forms'
+import { AppService } from '../src/app/app.service'
+import { Observable, of } from 'rxjs'
+
+class AppServiceMock {
+    saveNote(): Observable<object> {
+        return of({})
+    }
+
+    retrieveNote() {
+        return of(['a note', 'another note'])
+    }
+}
 
 describe('Voicemode app', () => {
     beforeEach( async() => {
@@ -14,7 +26,8 @@ describe('Voicemode app', () => {
             detectChanges: true,
             declarations: [DraftComponent, NoteComponent],
             imports: [HttpClientModule, FormsModule],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
+            schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+            providers: [{provide: AppService, useClass: AppServiceMock}]
         })
     })
 
