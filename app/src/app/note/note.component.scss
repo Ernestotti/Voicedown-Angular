@@ -7,7 +7,13 @@
     padding: 5px;
     overflow: hidden;
 }
-
+button {
+    opacity: 35%;
+    scale: 120%;
+}
+button:hover {
+    opacity: 100%;
+}
 .notes:hover {
     background-color: rgba(239, 239, 239, 0.919);
 }
