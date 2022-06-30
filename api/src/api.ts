@@ -11,6 +11,7 @@ app.listen(3001, () => {
     console.log('server started at localhost:3001')
 })
 
+
 app.post('/saveNote', async (req: Request, res: Response) => {
     const note = req.body.note
     const title = req.body.title

@@ -10,13 +10,27 @@ import { FormsModule } from '@angular/forms'
 import { AppService } from '../src/app/app.service'
 import { Observable, of } from 'rxjs'
 
-class AppServiceMock {
-    saveNote(): Observable<object> {
+class AppServiceMock { 
+    notes: { [title: string]: string[] } = {}
+    saveNote(title: string, note: string): Observable<object> {
+        if(!this.notes[title]) {
+            this.notes[title] = []
+        }
+        this.notes[title].push(note)
         return of({})
     }
 
-    retrieveNote() {
-        return of(['a note', 'another note'])
+    retrieveNote(title: string) {
+        const notes = this.notes[title]
+        return of(notes)
+    }
+    deleteNote(title: string, note: string) {
+        const newNotes = this.notes[title].filter((element) => {
+            return element !== note
+        })
+        this.notes[title] = newNotes
+        return of({})
+
     }
 }
 
@@ -42,7 +56,7 @@ describe('Voicemode app', () => {
     it('Should create notes', async() => {
         const aNoteText = 'a note'
         const anotherNoteText = 'another note'
-
+        
         let draft = screen.getByRole('textbox')
         await userEvent.type(draft, aNoteText)
         await userEvent.type(draft, '{Enter}')
@@ -54,6 +68,20 @@ describe('Voicemode app', () => {
         const anotherNote = await screen.findByText(anotherNoteText)
         expect(note).toBeInTheDocument()
         expect(anotherNote).toBeInTheDocument()
+        
+    })
+    it('Should delete notes', async() => {
+        window.confirm = () => {return true}
+        const aNoteText = 'a note'
+        let draft = screen.getByRole('textbox')
+        await userEvent.type(draft, aNoteText)
+        await userEvent.type(draft, '{Enter}')
+        let note = await screen.findByText(aNoteText)
+        
+        const button = screen.getByRole('button')
+        await userEvent.click(button)
+        
+        expect(note).not.toBeInTheDocument()
 
     })
 })
