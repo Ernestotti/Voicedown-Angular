@@ -41,6 +41,23 @@ app.post('/delete-note' , async (req: Request, res: Response) => {
     res.send({})
     
 })
+
+app.get('/download-notes-as-txt/:sessionName(*)', async (req: Request, res: Response) => {
+    const title = req.params.sessionName
+    const notes = NoteService.retrieve(title)
+
+    let content = title.toUpperCase() + "\n\n"
+    content += notes.join("\n")
+    const text_ready = content
+        
+    res.writeHead(200, {
+    'Content-Type': 'text/plain',
+    'Content-disposition': `attachment; filename=${title}.txt`
+    })
+
+    res.end(text_ready)
+})
+
 declare global {
     namespace NodeJS {
         interface Global {
