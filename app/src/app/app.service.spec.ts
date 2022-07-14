@@ -42,5 +42,21 @@ describe('AppService', () => {
   
       req.flush(response);
     });
-  });  
+  }); 
+  
+  describe('retrieveNote', () => {
+    it('calls to Api with a title to return the notes of that title ', () => {
+      const response = ['']
+      const title = 'A title'
+
+      service.retrieveNote(title).subscribe(() => [])
+
+      const req = httpTestingController.expectOne(`${environment.apiUrl}/retrieveNote`)
+
+      expect(req.request.method).toEqual('POST');
+      expect(req.request.body).toEqual({title: title})
+  
+      req.flush(response);
+    })
+  })
 })
