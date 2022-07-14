@@ -59,4 +59,22 @@ describe('AppService', () => {
       req.flush(response);
     })
   })
+  
+  describe('deleteNote', () => {
+    it('calls to the API with the note to delete from the title were belong', () => {
+      const response = {};
+      const title = 'A title'
+      const note = 'A note'
+    
+  
+      service.deleteNote(title, note).subscribe(() => {});
+  
+      const req = httpTestingController.expectOne(`${environment.apiUrl}/delete-note`);
+  
+      expect(req.request.method).toEqual('POST');
+      expect(req.request.body).toEqual({title: title, note: note})
+  
+      req.flush(response);
+    });
+  });
 })
