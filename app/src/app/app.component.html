@@ -1,5 +1,6 @@
 <div>
     <h1>{{title}}</h1>
+    <button type=button (click)="downloadNotesAsTxt()">📥</button>
     <app-draft *ngIf='show' (draftContentEvent)='getDraftContent($event)' class='draft'></app-draft>
     <div class='notes'>
         <app-note *ngFor='let note of notes' note={{note}} (deleteNoteEvent)='deleteNote($event)'></app-note>
