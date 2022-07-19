@@ -24,18 +24,6 @@ export class AppComponent implements OnInit {
     this.reloadOnHashChange()    
   }
   
-  downloadNotesAsTxt() {
-    let content = this.title.toUpperCase ()+ '\n\n'
-    content += this.notes.join('\n')
-    const blob = new Blob([content], { type: 'text/plain' })
-    const url = window.URL.createObjectURL(blob);
-    
-    const anchor = document.createElement('a');
-    anchor.download = this.title + '.txt'
-    anchor.href = url
-    anchor.click()
-  }
-
   reloadOnHashChange():void {
     window.addEventListener('hashchange', () => {
       location.reload()
@@ -52,13 +40,6 @@ export class AppComponent implements OnInit {
     this.service.saveNote(this.title, event).subscribe(() => {
       this.retrieveNote()
     })
-    this.createFileTxt(this.notes.toString())
-  }
-  createFileTxt(notes: BlobPart): void {
-    const data = this.notes;
-    console.log(data[this.notes.length - 1])
-    const archivo = new Blob([notes], { type: 'text/plain' })
-    console.log(archivo)
   }
 
   deleteNote(event:string): void {

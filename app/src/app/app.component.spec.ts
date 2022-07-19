@@ -18,5 +18,4 @@ describe('AppComponent', () => {
 
     expect(result).toBe(true)
   })
-  it('')
 })
