@@ -9,8 +9,9 @@ import { NoteComponent } from '../src/app/note/note.component'
 import { FormsModule } from '@angular/forms'
 import { AppService } from '../src/app/app.service'
 import { Observable, of } from 'rxjs'
+import { environment } from '../src/environments/environment'
 
-class AppServiceMock { 
+class AppServiceMock {
     notes: { [title: string]: string[] } = {}
     saveNote(title: string, note: string): Observable<object> {
         if(!this.notes[title]) {
@@ -49,26 +50,26 @@ describe('Voicemode app', () => {
         const textArea = 'textbox'
 
         const draft = screen.getByRole(textArea)
-        
+
         expect(draft).toBeInTheDocument()
     })
 
     it('Should create notes', async() => {
         const aNoteText = 'a note'
         const anotherNoteText = 'another note'
-        
+
         let draft = screen.getByRole('textbox')
         await userEvent.type(draft, aNoteText)
         await userEvent.type(draft, '{Enter}')
         draft = screen.getByRole('textbox')
         await userEvent.type(draft, anotherNoteText)
         await userEvent.type(draft, '{Enter}')
-        
+
         const note = await screen.findByText(aNoteText)
         const anotherNote = await screen.findByText(anotherNoteText)
         expect(note).toBeInTheDocument()
         expect(anotherNote).toBeInTheDocument()
-        
+
     })
     it('Should delete notes', async() => {
         window.confirm = () => {return true}
@@ -77,11 +78,21 @@ describe('Voicemode app', () => {
         await userEvent.type(draft, aNoteText)
         await userEvent.type(draft, '{Enter}')
         let note = await screen.findByText(aNoteText)
-        
+
         const button = screen.getByRole('button')
         await userEvent.click(button)
-        
+
         expect(note).not.toBeInTheDocument()
 
+    })
+
+    it('contains a link for download notes as txt', () => {
+        const sessionName = 'Voicedown'
+        const apiEndpointForDownloadNotes = '/download-notes-as-txt/'
+        const downloadAsTxtUrl = environment.apiUrl + apiEndpointForDownloadNotes + sessionName
+
+        const downloadLink = screen.getByRole('link')
+
+        expect(downloadLink).toHaveAttribute('href', downloadAsTxtUrl)
     })
 })
