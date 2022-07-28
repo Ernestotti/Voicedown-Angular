@@ -1,7 +1,5 @@
 @import '../styles/styles.scss';
 
-
-
 h1 {
     display: flex;
     justify-content: center;
@@ -11,6 +9,15 @@ h1 {
     margin-bottom: 2%;
 }
 
+.downloadButton {
+    width: 70%;
+    padding-bottom: 3%;
+}
+
+a {
+    float: right;
+}
+
 .draft {
     width: 50%
 }
@@ -18,4 +25,3 @@ h1 {
 .notes {
     width: 100%;
 }
-   
