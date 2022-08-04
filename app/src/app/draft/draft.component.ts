@@ -16,7 +16,7 @@ export class DraftComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.focusOnLoad()
+    // this.focusOnLoad()
   }
   
   focusOnLoad(): void {
