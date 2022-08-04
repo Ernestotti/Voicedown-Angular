@@ -19,4 +19,14 @@ services:
     volumes:
       - ./api:/api
       - /api/node_modules
+    depends_on:
+      - mongo
     container_name: api_seed
+  mongo:
+    image: mongo:5.0
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
